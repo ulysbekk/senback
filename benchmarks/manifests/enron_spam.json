@@ -1,0 +1,15 @@
+{
+  "name": "enron_spam",
+  "description": "Enron-Spam dataset: 33,716 labelled emails (17,171 spam / 16,545 ham).",
+  "file": "enron_spam/enron_spam_data.csv",
+  "has_header": true,
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "errors": "replace",
+  "text_prefix": "Subject: ",
+  "text_columns": ["Subject", "Message"],
+  "label_columns": ["Spam/Ham"],
+  "source": "https://github.com/MWiechmann/enron_spam_data",
+  "download": "https://raw.githubusercontent.com/MWiechmann/enron_spam_data/master/enron_spam_data.zip",
+  "license": "See upstream repository (Enron corpus / SpamAssassin derived)."
+}

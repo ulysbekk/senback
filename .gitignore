@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
+.env.local
+dist/
+build/
+*.egg-info/
+
+# Raw benchmark corpora contain real phone numbers, emails, and personal
+# messages. Keep them local; manifests and the evaluation harness are committed.
+benchmarks/data/

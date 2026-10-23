@@ -1,0 +1,14 @@
+{
+  "name": "uci_sms",
+  "description": "UCI SMS Spam Collection v.1 (5,574 labelled SMS messages).",
+  "file": "uci_sms/SMSSpamCollection",
+  "has_header": false,
+  "delimiter": "\t",
+  "encoding": "utf-8",
+  "errors": "replace",
+  "text_columns": ["v2"],
+  "label_columns": ["v1"],
+  "source": "https://archive.ics.uci.edu/ml/datasets/sms+spam+collection",
+  "download": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+  "license": "CC BY 4.0 (UCI Machine Learning Repository)"
+}

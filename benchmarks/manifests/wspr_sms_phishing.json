@@ -1,0 +1,15 @@
+{
+  "name": "wspr_sms_phishing",
+  "description": "wspr-ncsu/sms-phishing raw SMS phishing messages (all labelled scam).",
+  "file": "wspr_sms_phishing/phishing_messages.csv",
+  "has_header": true,
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "errors": "replace",
+  "text_columns": ["message", "text", "body"],
+  "label_columns": ["label"],
+  "default_label": "scam",
+  "source": "https://github.com/wspr-ncsu/sms-phishing",
+  "download": "https://raw.githubusercontent.com/wspr-ncsu/sms-phishing/main/phishing_messages.csv",
+  "license": "See upstream repository."
+}

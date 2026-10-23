@@ -1,0 +1,4781 @@
+{
+  "version": 2,
+  "source": "Curated, weighted phrase corpus for Sentinel. Built from public scam guidance and phishing/smishing research datasets. Weights are evidence-strength signals, not calibrated probabilities.",
+  "categories": {
+    "returns": {
+      "title": "Known scam wording about returns",
+      "description": "The message uses phrases commonly used to promise returns that real investments cannot guarantee.",
+      "default_severity": "medium",
+      "rule_group": "returns"
+    },
+    "payment": {
+      "title": "Payment method used in scams",
+      "description": "The message asks for a payment method that is difficult to trace or reverse.",
+      "default_severity": "high",
+      "rule_group": "payment"
+    },
+    "secrecy": {
+      "title": "Known scam wording about secrecy",
+      "description": "The message asks you to keep the deal from people who could help you check it.",
+      "default_severity": "high",
+      "rule_group": "secrecy"
+    },
+    "urgency": {
+      "title": "Known scam wording about urgency",
+      "description": "The message uses pressure or scarcity language to stop you from checking the offer.",
+      "default_severity": "medium",
+      "rule_group": "urgency"
+    },
+    "withdrawal": {
+      "title": "Known scam wording about withdrawals",
+      "description": "The message links withdrawals to fees, targets, or further payments. That is a common way to keep victims paying.",
+      "default_severity": "high",
+      "rule_group": "withdrawal"
+    },
+    "contact": {
+      "title": "Known scam opening lines",
+      "description": "The message uses an opening line commonly used by investment or romance scammers.",
+      "default_severity": "medium",
+      "rule_group": "contact"
+    },
+    "insider": {
+      "title": "Known scam wording about inside information",
+      "description": "The message claims access to non-public information or an announcement before the market knows.",
+      "default_severity": "high",
+      "rule_group": "insider"
+    },
+    "prediction": {
+      "title": "Known scam wording about price moves",
+      "description": "The message predicts a large, fast price move, a pattern common in pump-and-dump schemes.",
+      "default_severity": "high",
+      "rule_group": "prediction"
+    },
+    "group": {
+      "title": "Known scam wording about private groups",
+      "description": "The message invites you into a private group where scammers can control what you see.",
+      "default_severity": "medium",
+      "rule_group": "group"
+    },
+    "credentials": {
+      "title": "Known phishing wording",
+      "description": "The message asks you to send or enter a password, one-time code, or wallet recovery phrase.",
+      "default_severity": "critical",
+      "rule_group": "credentials"
+    },
+    "account": {
+      "title": "Known account-notice wording",
+      "description": "The message uses account-notice wording that scammers often copy. Open the official app or type the address yourself.",
+      "default_severity": "low",
+      "rule_group": "account",
+      "cap": 6
+    },
+    "investment": {
+      "title": "Known investment-pitch wording",
+      "description": "The message uses wording common in unsolicited investment pitches. Verify the firm and the offering independently.",
+      "default_severity": "medium",
+      "rule_group": "investment",
+      "cap": 10
+    },
+    "minimum": {
+      "title": "Known minimum-investment wording",
+      "description": "The message asks for a large minimum commitment before you can verify the offer.",
+      "default_severity": "low",
+      "rule_group": "minimum",
+      "cap": 8
+    },
+    "recovery": {
+      "title": "Known recovery-scam wording",
+      "description": "The message offers to recover lost money for an upfront fee, a common follow-up scam.",
+      "default_severity": "high",
+      "rule_group": "recovery"
+    },
+    "impersonation": {
+      "title": "Known impersonation wording",
+      "description": "The message uses wording that imitates a bank, company, or authority.",
+      "default_severity": "high",
+      "rule_group": "impersonation"
+    },
+    "threat": {
+      "title": "Known threat-based scam wording",
+      "description": "The message uses threats of arrest, legal action, or a frozen account to force a payment.",
+      "default_severity": "high",
+      "rule_group": "impersonation"
+    },
+    "regulation": {
+      "title": "Known unregulated-seller wording",
+      "description": "The message suggests the seller is not registered or regulated. Check them with a financial regulator.",
+      "default_severity": "medium",
+      "rule_group": "regulation"
+    },
+    "offshore": {
+      "title": "Known offshore or tax-free pitch",
+      "description": "The message uses offshore or tax-free language that makes the seller harder to verify.",
+      "default_severity": "low",
+      "rule_group": "offshore"
+    },
+    "too_good": {
+      "title": "Known too-good-to-be-true wording",
+      "description": "The message promises easy money, prizes, or instant profits.",
+      "default_severity": "high",
+      "rule_group": "too_good"
+    },
+    "testimonial": {
+      "title": "Known fake-proof wording",
+      "description": "The message uses profit screenshots or group testimonials, which scammers can fake.",
+      "default_severity": "medium",
+      "rule_group": "group"
+    },
+    "romance": {
+      "title": "Known romance-scam wording",
+      "description": "The message uses affectionate language common in relationship investment scams.",
+      "default_severity": "medium",
+      "rule_group": "romance",
+      "cap": 18
+    },
+    "taxes": {
+      "title": "Known tax-fee scam wording",
+      "description": "The message asks for an upfront tax or fee before money can be released.",
+      "default_severity": "high",
+      "rule_group": "offshore"
+    },
+    "prizes": {
+      "title": "Known prize or giveaway wording",
+      "description": "The message says you won or can claim a prize. Scammers use this to collect fees or account details.",
+      "default_severity": "medium",
+      "rule_group": "too_good"
+    },
+    "delivery": {
+      "title": "Delivery or parcel scam wording",
+      "description": "The message claims a parcel, package, or delivery needs attention, often to collect a fee or link click.",
+      "default_severity": "medium",
+      "rule_group": "delivery",
+      "cap": 14
+    },
+    "account_threat": {
+      "title": "Account suspension or verification pressure",
+      "description": "The message claims an account is locked, limited, or at risk and pushes you to verify it through the message.",
+      "default_severity": "medium",
+      "rule_group": "account_threat",
+      "cap": 14
+    },
+    "tech_support": {
+      "title": "Tech support scam wording",
+      "description": "The message claims a device is infected or hacked and pushes you toward a support call or remote-access tool.",
+      "default_severity": "medium",
+      "rule_group": "tech_support",
+      "cap": 16
+    },
+    "job_offer": {
+      "title": "Job or task scam wording",
+      "description": "The message offers easy work, task-based pay, or reshipping, a common way to recruit money mules.",
+      "default_severity": "medium",
+      "rule_group": "job",
+      "cap": 16
+    },
+    "loan": {
+      "title": "Loan or debt-relief scam wording",
+      "description": "The message promises a guaranteed loan or debt relief and may ask for an upfront fee.",
+      "default_severity": "medium",
+      "rule_group": "loan",
+      "cap": 12
+    },
+    "tax_refund": {
+      "title": "Tax refund or IRS impersonation wording",
+      "description": "The message claims a refund, rebate, or tax problem needs immediate verification or payment.",
+      "default_severity": "medium",
+      "rule_group": "impersonation",
+      "cap": 14
+    },
+    "utility": {
+      "title": "Utility disconnection pressure",
+      "description": "The message threatens to disconnect a utility service unless you pay or verify immediately.",
+      "default_severity": "medium",
+      "rule_group": "utility",
+      "cap": 12
+    },
+    "subscription": {
+      "title": "Subscription renewal or billing wording",
+      "description": "The message claims a subscription renewed, expired, or has a billing problem. Verify it in the official app.",
+      "default_severity": "low",
+      "rule_group": "subscription",
+      "cap": 8
+    },
+    "crypto": {
+      "title": "Crypto or wallet scam wording",
+      "description": "The message pushes wallet validation, seed phrases, airdrops, crypto ATMs, or moving money to a safer account.",
+      "default_severity": "medium",
+      "rule_group": "crypto",
+      "cap": 18
+    },
+    "gambling": {
+      "title": "Casino or betting spam",
+      "description": "The message promotes a casino, betting bonus, free spins, or gambling credit. Gambling spam is a top bulk-SMS category and frequently hides malware or subscription traps.",
+      "default_severity": "medium",
+      "rule_group": "gambling",
+      "cap": 14
+    },
+    "alcohol_delivery": {
+      "title": "Missed-delivery or alcohol-order spam",
+      "description": "The message claims a delivery was missed or an alcohol order is pending and pushes you to reschedule through a link.",
+      "default_severity": "medium",
+      "rule_group": "mis_delivery",
+      "cap": 12
+    },
+    "missed_call": {
+      "title": "Missed-call / call-back spam",
+      "description": "The message reports a missed call or voicemail from an unknown number. Wangiri-style call-back scams rely on these notices.",
+      "default_severity": "medium",
+      "rule_group": "missed_call",
+      "cap": 10
+    },
+    "support": {
+      "title": "Technical/support impersonation",
+      "description": "Impersonation of tech support (Best Buy/Geek Squad, Microsoft, Apple) pressuring to call.",
+      "default_severity": "medium",
+      "rule_group": "tech_support",
+      "cap": 16
+    }
+  },
+  "phrases": [
+    {
+      "text": "guaranteed returns",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guaranteed return",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guarantees returns",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guarantee returns",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guaranteed profit",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guarantees profit",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "guaranteed income",
+      "category": "returns",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "guaranteed payout",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "assured returns",
+      "category": "returns",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "fixed returns",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "monthly returns",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "risk free",
+      "category": "returns",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "zero risk",
+      "category": "returns",
+      "weight": 16,
+      "severity": "critical"
+    },
+    {
+      "text": "no risk",
+      "category": "returns",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "cannot lose",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "can't lose",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "double your money",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "triple your money",
+      "category": "returns",
+      "weight": 18,
+      "severity": "critical"
+    },
+    {
+      "text": "100% safe",
+      "category": "returns",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "passive income",
+      "category": "returns",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "send usdt",
+      "category": "payment",
+      "weight": 25,
+      "severity": "critical"
+    },
+    {
+      "text": "in usdt",
+      "category": "payment",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "usdt to the wallet",
+      "category": "payment",
+      "weight": 25,
+      "severity": "critical"
+    },
+    {
+      "text": "send bitcoin",
+      "category": "payment",
+      "weight": 25,
+      "severity": "critical"
+    },
+    {
+      "text": "send btc",
+      "category": "payment",
+      "weight": 25,
+      "severity": "critical"
+    },
+    {
+      "text": "send crypto",
+      "category": "payment",
+      "weight": 22,
+      "severity": "critical"
+    },
+    {
+      "text": "send ether",
+      "category": "payment",
+      "weight": 22,
+      "severity": "critical"
+    },
+    {
+      "text": "crypto wallet",
+      "category": "payment",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "wallet address",
+      "category": "payment",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "personal wallet",
+      "category": "payment",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "usdt wallet",
+      "category": "payment",
+      "weight": 22,
+      "severity": "critical"
+    },
+    {
+      "text": "bitcoin wallet",
+      "category": "payment",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "gift card",
+      "category": "payment",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "prepaid card",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "money order",
+      "category": "payment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "western union",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "wire transfer",
+      "category": "payment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "don't tell your bank",
+      "category": "secrecy",
+      "weight": 22,
+      "severity": "high"
+    },
+    {
+      "text": "do not tell your bank",
+      "category": "secrecy",
+      "weight": 22,
+      "severity": "high"
+    },
+    {
+      "text": "don't tell anyone",
+      "category": "secrecy",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "do not tell anyone",
+      "category": "secrecy",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "don't tell your family",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "don't tell your friends",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "keep this secret",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "keep it secret",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "between us",
+      "category": "secrecy",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "limited time",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "act now",
+      "category": "urgency",
+      "weight": 12,
+      "severity": "high"
+    },
+    {
+      "text": "act fast",
+      "category": "urgency",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "spots left",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "places left",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "offer expires",
+      "category": "urgency",
+      "weight": 12,
+      "severity": "high"
+    },
+    {
+      "text": "offer ends tonight",
+      "category": "urgency",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "offer closes tonight",
+      "category": "urgency",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "last chance",
+      "category": "urgency",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "before it's too late",
+      "category": "urgency",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "while supplies last",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "today only",
+      "category": "urgency",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "withdraw your profits",
+      "category": "withdrawal",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "withdrawals unlock",
+      "category": "withdrawal",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "withdrawal fee",
+      "category": "withdrawal",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "release fee",
+      "category": "withdrawal",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "unlock your withdrawal",
+      "category": "withdrawal",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "unlock your funds",
+      "category": "withdrawal",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "hit your target",
+      "category": "withdrawal",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "profit target",
+      "category": "withdrawal",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "deposit more",
+      "category": "withdrawal",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "pay the tax first",
+      "category": "withdrawal",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "wrong number",
+      "category": "contact",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "came across your profile",
+      "category": "contact",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "found your profile",
+      "category": "contact",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "found your number",
+      "category": "contact",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "investment proposal",
+      "category": "contact",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "inside information",
+      "category": "insider",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "insider information",
+      "category": "insider",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "insider tip",
+      "category": "insider",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "before the news goes public",
+      "category": "insider",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "about to announce",
+      "category": "insider",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "my uncle works",
+      "category": "insider",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "non public information",
+      "category": "insider",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "will explode",
+      "category": "prediction",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "will skyrocket",
+      "category": "prediction",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "to the moon",
+      "category": "prediction",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "tenfold",
+      "category": "prediction",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "100x",
+      "category": "prediction",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "before it moons",
+      "category": "prediction",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "private trading group",
+      "category": "group",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "vip group",
+      "category": "group",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "signal group",
+      "category": "group",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "telegram group",
+      "category": "group",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "whatsapp group",
+      "category": "group",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "join my group",
+      "category": "group",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "add you to our group",
+      "category": "group",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "send your password",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "send me your password",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "share your password",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "provide your password",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "enter your password",
+      "category": "credentials",
+      "weight": 28,
+      "severity": "critical"
+    },
+    {
+      "text": "send your one time code",
+      "category": "credentials",
+      "weight": 28,
+      "severity": "critical"
+    },
+    {
+      "text": "send me the code",
+      "category": "credentials",
+      "weight": 24,
+      "severity": "critical"
+    },
+    {
+      "text": "share the code",
+      "category": "credentials",
+      "weight": 22,
+      "severity": "critical"
+    },
+    {
+      "text": "send your otp",
+      "category": "credentials",
+      "weight": 26,
+      "severity": "critical"
+    },
+    {
+      "text": "send your verification code",
+      "category": "credentials",
+      "weight": 26,
+      "severity": "critical"
+    },
+    {
+      "text": "send your seed phrase",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "send your recovery phrase",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "share your seed phrase",
+      "category": "credentials",
+      "weight": 30,
+      "severity": "critical"
+    },
+    {
+      "text": "enter your recovery phrase",
+      "category": "credentials",
+      "weight": 28,
+      "severity": "critical"
+    },
+    {
+      "text": "connect your wallet",
+      "category": "credentials",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "validate your wallet",
+      "category": "credentials",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "sync your wallet",
+      "category": "credentials",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "verify your account",
+      "category": "credentials",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "confirm your account",
+      "category": "credentials",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "click this link to verify",
+      "category": "credentials",
+      "weight": 20,
+      "severity": "critical"
+    },
+    {
+      "text": "login to verify",
+      "category": "credentials",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "account suspended",
+      "category": "account",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "account locked",
+      "category": "account",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "unusual activity",
+      "category": "account",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "statement available",
+      "category": "account",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "quarterly statement",
+      "category": "account",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "sign in to view",
+      "category": "account",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "investment opportunity",
+      "category": "investment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "investment plan",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "our firm offers",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "pre construction",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "real estate investment",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "portfolio manager",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "trading bot",
+      "category": "investment",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "ai trading",
+      "category": "investment",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "crypto fund",
+      "category": "investment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "hedge fund",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "minimum investment",
+      "category": "minimum",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "minimum deposit",
+      "category": "minimum",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "minimum buy in",
+      "category": "minimum",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "recover your lost",
+      "category": "recovery",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "recover lost funds",
+      "category": "recovery",
+      "weight": 22,
+      "severity": "high"
+    },
+    {
+      "text": "refund fee",
+      "category": "recovery",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "recovery agent",
+      "category": "recovery",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "we can recover",
+      "category": "recovery",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "arrest warrant",
+      "category": "impersonation",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "legal action",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "account will be closed",
+      "category": "impersonation",
+      "weight": 12,
+      "severity": "high"
+    },
+    {
+      "text": "unusual login",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "verify your identity",
+      "category": "impersonation",
+      "weight": 12,
+      "severity": "high"
+    },
+    {
+      "text": "government grant",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "official notice",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "irs notice",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "social security suspended",
+      "category": "impersonation",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "you will be arrested",
+      "category": "threat",
+      "weight": 22,
+      "severity": "high"
+    },
+    {
+      "text": "legal action will be taken",
+      "category": "threat",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "pay immediately",
+      "category": "threat",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "final warning",
+      "category": "threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "account will be frozen",
+      "category": "threat",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "not registered",
+      "category": "regulation",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "unregulated",
+      "category": "regulation",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "no license",
+      "category": "regulation",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "offshore",
+      "category": "offshore",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "tax free",
+      "category": "offshore",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "tax haven",
+      "category": "offshore",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "no taxes",
+      "category": "offshore",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "free money",
+      "category": "too_good",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "you have won",
+      "category": "too_good",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "claim your prize",
+      "category": "too_good",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "guaranteed approval",
+      "category": "too_good",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "instant profit",
+      "category": "too_good",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "easy money",
+      "category": "too_good",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "members are making",
+      "category": "testimonial",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "proof of profits",
+      "category": "testimonial",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "withdrawal proof",
+      "category": "testimonial",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "screenshot of profits",
+      "category": "testimonial",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "everyone is earning",
+      "category": "testimonial",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "my dear",
+      "category": "romance",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "feel a connection",
+      "category": "romance",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "are you single",
+      "category": "romance",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "pay the tax",
+      "category": "taxes",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "tax payment",
+      "category": "taxes",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "you have won a prize",
+      "category": "prizes",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "claim your reward",
+      "category": "prizes",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "free gift",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "your parcel is waiting",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "your package is waiting",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery attempt failed",
+      "category": "delivery",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "we attempted to deliver",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "parcel could not be delivered",
+      "category": "delivery",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "package could not be delivered",
+      "category": "delivery",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "missed delivery",
+      "category": "delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "redelivery fee",
+      "category": "delivery",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "redelivery charge",
+      "category": "delivery",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "customs fee",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "customs clearance fee",
+      "category": "delivery",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "shipping fee",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "pay the shipping fee",
+      "category": "delivery",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "track your package",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "track your parcel",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "schedule your delivery",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "reschedule delivery",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "update your delivery address",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery address is incomplete",
+      "category": "delivery",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "incorrect delivery address",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "package is on hold",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "parcel is on hold",
+      "category": "delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "clear customs",
+      "category": "delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery failed",
+      "category": "delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "courier service",
+      "category": "delivery",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "tracking number",
+      "category": "delivery",
+      "weight": 3,
+      "severity": "medium"
+    },
+    {
+      "text": "usps delivery",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "royal mail delivery",
+      "category": "delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "dpd delivery",
+      "category": "delivery",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "evri delivery",
+      "category": "delivery",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "dhl delivery",
+      "category": "delivery",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "fedex delivery",
+      "category": "delivery",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "account has been suspended",
+      "category": "account_threat",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "account will be suspended",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "account has been locked",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "account will be locked",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "account is on hold",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "account has been limited",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "account deactivation",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "reactivate your account",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "restore your account",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "unusual activity report",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "suspicious login attempt",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "unauthorized login",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "we noticed a login",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "unusual sign in",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "security alert",
+      "category": "account_threat",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "security alert on your account",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "confirm your account details",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "update your account information",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "immediate verification required",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "verification required",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "verify within 24 hours",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "account may be closed",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "failure to verify",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "prevent account closure",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "avoid account suspension",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "identity verification required",
+      "category": "account_threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "confirm your identity",
+      "category": "account_threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "your computer is infected",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "your device is infected",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "virus detected",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "your device is at risk",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "microsoft support",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "apple support",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "windows support",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "call microsoft support",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "call apple support",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "do not restart your computer",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "do not turn off your computer",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "remote access",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "allow remote access",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "download teamviewer",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "download anydesk",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "install remote support",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "give us remote access",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "security alert on your computer",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "windows defender alert",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "firewall alert",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "norton subscription",
+      "category": "tech_support",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "mcafee subscription",
+      "category": "tech_support",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "geek squad renewal",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "antivirus renewal",
+      "category": "tech_support",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "refund for antivirus",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "lifetime license",
+      "category": "tech_support",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "your computer has been hacked",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "your ip address was stolen",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "case number",
+      "category": "tech_support",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "technical support department",
+      "category": "tech_support",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "work from home",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "earn extra income",
+      "category": "job_offer",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "no experience necessary",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "weekly pay",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "daily payout",
+      "category": "job_offer",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "task based",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "complete simple tasks",
+      "category": "job_offer",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "like and review",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "recruitment fee",
+      "category": "job_offer",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "training fee",
+      "category": "job_offer",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "equipment fee",
+      "category": "job_offer",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "upfront payment",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "telegram for interview",
+      "category": "job_offer",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "whatsapp for interview",
+      "category": "job_offer",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "job offer",
+      "category": "job_offer",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "personal assistant",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "mystery shopper",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "payment processing job",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "money mule",
+      "category": "job_offer",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "receive and forward packages",
+      "category": "job_offer",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "use your bank account",
+      "category": "job_offer",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "reshipment",
+      "category": "job_offer",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "package reshipping",
+      "category": "job_offer",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "commission based",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "remote data entry",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "virtual assistant",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "hiring immediately",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "start today",
+      "category": "job_offer",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "no interview",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "text me on telegram",
+      "category": "job_offer",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "contact me on whatsapp",
+      "category": "job_offer",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "guaranteed loan",
+      "category": "loan",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "no credit check",
+      "category": "loan",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "instant approval",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "bad credit accepted",
+      "category": "loan",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "payday loan",
+      "category": "loan",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "upfront fee",
+      "category": "loan",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "processing fee",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "loan approved",
+      "category": "loan",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "release your loan",
+      "category": "loan",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "advance fee",
+      "category": "loan",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "debt relief",
+      "category": "loan",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "erase your debt",
+      "category": "loan",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "settle your debt",
+      "category": "loan",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "government loan",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "forgiveness program",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "student loan forgiveness",
+      "category": "loan",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "apply now for your loan",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "no paperwork",
+      "category": "loan",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "tax refund pending",
+      "category": "tax_refund",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "refund is on hold",
+      "category": "tax_refund",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "unclaimed refund",
+      "category": "tax_refund",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "tax refund of",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "irs refund",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "tax rebate",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "economic impact payment",
+      "category": "tax_refund",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "stimulus check",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "recovery rebate credit",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "refund verification",
+      "category": "tax_refund",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "confirm your tax information",
+      "category": "tax_refund",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "tax return suspended",
+      "category": "tax_refund",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "irs final notice",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "tax debt",
+      "category": "tax_refund",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "back taxes",
+      "category": "tax_refund",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "owe the irs",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "tax lien",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "gift card to pay tax",
+      "category": "tax_refund",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "pay taxes with gift card",
+      "category": "tax_refund",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "arrest for tax fraud",
+      "category": "tax_refund",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "tax fraud investigation",
+      "category": "tax_refund",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "irs agent",
+      "category": "tax_refund",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "social security administration",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "medicare refund",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "medicaid refund",
+      "category": "tax_refund",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "overdue bill",
+      "category": "utility",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "disconnection notice",
+      "category": "utility",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "service will be disconnected",
+      "category": "utility",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "final notice before disconnection",
+      "category": "utility",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "pay your bill immediately",
+      "category": "utility",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "avoid disconnection",
+      "category": "utility",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "electricity will be shut off",
+      "category": "utility",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "utility payment",
+      "category": "utility",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "past due balance",
+      "category": "utility",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "shut off notice",
+      "category": "utility",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "auto renew",
+      "category": "subscription",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "subscription has been renewed",
+      "category": "subscription",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "renewal charge",
+      "category": "subscription",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "cancel your subscription",
+      "category": "subscription",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "free trial",
+      "category": "subscription",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "membership expired",
+      "category": "subscription",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "update payment method",
+      "category": "subscription",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your subscription is about to expire",
+      "category": "subscription",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "renew now",
+      "category": "subscription",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "billing problem",
+      "category": "subscription",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "bitcoin atm",
+      "category": "crypto",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "crypto atm",
+      "category": "crypto",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "buy gold bars",
+      "category": "crypto",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "move your money to protect it",
+      "category": "crypto",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "safe account",
+      "category": "crypto",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "secure wallet",
+      "category": "crypto",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "wallet validation",
+      "category": "crypto",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "connect wallet",
+      "category": "crypto",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "airdrop",
+      "category": "crypto",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "free airdrop",
+      "category": "crypto",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "claim airdrop",
+      "category": "crypto",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "seed phrase",
+      "category": "crypto",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "private key",
+      "category": "crypto",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "recovery phrase",
+      "category": "crypto",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "metamask wallet",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "trust wallet",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "binance account",
+      "category": "crypto",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "coinbase account",
+      "category": "crypto",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "wallet connect",
+      "category": "crypto",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "defi platform",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "yield farming",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "staking rewards",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "passive staking",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "gift card code",
+      "category": "payment",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "gift card pin",
+      "category": "payment",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "scratch off the back",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "apple gift card",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "google play card",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "steam card",
+      "category": "payment",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "itunes card",
+      "category": "payment",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "moneygram",
+      "category": "payment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "cashier's check",
+      "category": "payment",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "zelle",
+      "category": "payment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "cash app",
+      "category": "payment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "venmo",
+      "category": "payment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "paypal friends and family",
+      "category": "payment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "wire the money",
+      "category": "payment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "bank transfer",
+      "category": "payment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "payment link",
+      "category": "payment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "invoice attached",
+      "category": "payment",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "overpayment",
+      "category": "payment",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "refund overpayment",
+      "category": "payment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "send back the difference",
+      "category": "payment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "send the remaining balance",
+      "category": "payment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "keep this confidential",
+      "category": "secrecy",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "between you and me",
+      "category": "secrecy",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "this is confidential",
+      "category": "secrecy",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "do not discuss",
+      "category": "secrecy",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "don't involve the police",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "do not call the bank",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "the bank is in on it",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "they are in on it",
+      "category": "secrecy",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "stay on the phone",
+      "category": "secrecy",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "don't hang up",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "only say what i tell you",
+      "category": "secrecy",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "do not tell the teller",
+      "category": "secrecy",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "keep it quiet",
+      "category": "secrecy",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "don't let anyone know",
+      "category": "secrecy",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "we are being monitored",
+      "category": "secrecy",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "act immediately",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "urgent action required",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "immediate action required",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "final notice",
+      "category": "urgency",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "last warning",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "expires in 24 hours",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "within 24 hours",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "within 48 hours",
+      "category": "urgency",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "time is running out",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "don't delay",
+      "category": "urgency",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "respond immediately",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "verify immediately",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "avoid suspension",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "avoid termination",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "avoid account closure",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "urgent payment required",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "payment is overdue",
+      "category": "urgency",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "immediate payment",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "final demand",
+      "category": "urgency",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "you must act now",
+      "category": "urgency",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "warrant for your arrest",
+      "category": "threat",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "police will arrive",
+      "category": "threat",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "you will be deported",
+      "category": "threat",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "you will be fined",
+      "category": "threat",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "assets will be frozen",
+      "category": "threat",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "lawsuit will be filed",
+      "category": "threat",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "court action",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "criminal charges",
+      "category": "threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "money laundering",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "child pornography",
+      "category": "threat",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "failure to comply",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "legal proceedings",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "you are under investigation",
+      "category": "threat",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "case has been filed",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "arrest is imminent",
+      "category": "threat",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "you owe back taxes",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "deportation",
+      "category": "threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "federal trade commission",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "internal revenue service",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "treasury department",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "medicare",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "medicaid",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "amazon security",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "apple id",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "microsoft account",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "paypal security",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "netflix billing",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "publishers clearing house",
+      "category": "impersonation",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "prize patrol",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "bank fraud department",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "card services",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "fraud prevention team",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "security center",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "official notification",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "government agency",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "amazon order",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "your amazon account",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your apple account",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your paypal account",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your netflix account",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your bank account",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "your credit card",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "your debit card",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "your social security",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "economic relief",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "emergency relief fund",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "government assistance",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "federal assistance",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "benefit payment",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "cost of living payment",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "cost of living relief",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "energy rebate",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "unclaimed money",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "unclaimed funds",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "government refund",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "refund department",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "benefits department",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "social security office",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "medicare benefits",
+      "category": "impersonation",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "healthcare benefits",
+      "category": "impersonation",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "you have been selected",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "congratulations you have won",
+      "category": "prizes",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "claim your prize now",
+      "category": "prizes",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "you are a winner",
+      "category": "prizes",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "lucky winner",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "free gift card",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "gift card giveaway",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "scratch card",
+      "category": "prizes",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "unclaimed prize",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "claim within 24 hours",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery fee for your prize",
+      "category": "prizes",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "winner selected",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "you won",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "prize is waiting",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "claim your winnings",
+      "category": "prizes",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "lottery winner",
+      "category": "prizes",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "sweepstakes",
+      "category": "prizes",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "free vacation",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "you are eligible for a refund",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "i feel connected to you",
+      "category": "romance",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "my love",
+      "category": "romance",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "dear friend",
+      "category": "romance",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "i want to meet you",
+      "category": "romance",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "send me money for a ticket",
+      "category": "romance",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "hospital bill",
+      "category": "romance",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "military deployment",
+      "category": "romance",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "oil rig",
+      "category": "romance",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "widow",
+      "category": "romance",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "trust fund",
+      "category": "romance",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "i will visit you",
+      "category": "romance",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "our future together",
+      "category": "romance",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "i need your help",
+      "category": "romance",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "i am stuck",
+      "category": "romance",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "visa fee",
+      "category": "romance",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "travel expenses",
+      "category": "romance",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "my dear friend",
+      "category": "romance",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "financial freedom",
+      "category": "investment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "wealth management",
+      "category": "investment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "private placement",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "pre ipo",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "guaranteed allocation",
+      "category": "investment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "exclusive allocation",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "limited allocation",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "fund manager",
+      "category": "investment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "account manager",
+      "category": "investment",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "forex",
+      "category": "investment",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "binary options",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "signal provider",
+      "category": "investment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "copy trading",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "pump and dump",
+      "category": "investment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "high yield investment",
+      "category": "investment",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "monthly profit",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "daily profit",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "profit guarantee",
+      "category": "investment",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "capital guaranteed",
+      "category": "investment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "principal guaranteed",
+      "category": "investment",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "no loss",
+      "category": "investment",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "double your investment",
+      "category": "investment",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "send the code",
+      "category": "credentials",
+      "weight": 24,
+      "severity": "critical"
+    },
+    {
+      "text": "provide the code",
+      "category": "credentials",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "enter the code",
+      "category": "credentials",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "read me the code",
+      "category": "credentials",
+      "weight": 24,
+      "severity": "critical"
+    },
+    {
+      "text": "read back the code",
+      "category": "credentials",
+      "weight": 24,
+      "severity": "critical"
+    },
+    {
+      "text": "tell me the code",
+      "category": "credentials",
+      "weight": 24,
+      "severity": "critical"
+    },
+    {
+      "text": "confirm your password",
+      "category": "credentials",
+      "weight": 20,
+      "severity": "high"
+    },
+    {
+      "text": "update your password",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "reset your password",
+      "category": "credentials",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "temporary password",
+      "category": "credentials",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "2fa code",
+      "category": "credentials",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "two factor code",
+      "category": "credentials",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "authenticator code",
+      "category": "credentials",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "security code",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "cvv",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "card number",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "expiration date",
+      "category": "credentials",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "date of birth",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "mother's maiden name",
+      "category": "credentials",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "account number",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "routing number",
+      "category": "credentials",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "online banking",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "bank login",
+      "category": "credentials",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "wallet seed",
+      "category": "credentials",
+      "weight": 18,
+      "severity": "high"
+    },
+    {
+      "text": "verification pin",
+      "category": "credentials",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "security pin",
+      "category": "credentials",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "one time passcode",
+      "category": "credentials",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "one time password",
+      "category": "credentials",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "send a selfie",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "photo of your id",
+      "category": "credentials",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "photo id",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "government id",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "passport number",
+      "category": "credentials",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "driver's license",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "proof of address",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "utility bill",
+      "category": "credentials",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "bank statement",
+      "category": "credentials",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "payslip",
+      "category": "credentials",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "is this a good number",
+      "category": "contact",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "i got your number from",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "we met online",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "i saw your profile",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "hello dear",
+      "category": "contact",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "hi dear",
+      "category": "contact",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "are you there",
+      "category": "contact",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "can we chat",
+      "category": "contact",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "do you use whatsapp",
+      "category": "contact",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "let's talk on whatsapp",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "add me on telegram",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "message me on telegram",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "i found you on facebook",
+      "category": "contact",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "you look familiar",
+      "category": "contact",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "can i ask you a question",
+      "category": "contact",
+      "weight": 2,
+      "severity": "low"
+    },
+    {
+      "text": "recover your funds",
+      "category": "recovery",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "recover your money",
+      "category": "recovery",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "fund recovery",
+      "category": "recovery",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "chargeback service",
+      "category": "recovery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "recovery expert",
+      "category": "recovery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "we can help you recover",
+      "category": "recovery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "no recovery no fee",
+      "category": "recovery",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "pay the recovery fee",
+      "category": "recovery",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "make money fast",
+      "category": "too_good",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "quick money",
+      "category": "too_good",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "instant cash",
+      "category": "too_good",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "risk free profit",
+      "category": "too_good",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "get rich quick",
+      "category": "too_good",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "lucrative opportunity",
+      "category": "too_good",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "once in a lifetime opportunity",
+      "category": "too_good",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "exclusive opportunity",
+      "category": "too_good",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "secret method",
+      "category": "too_good",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "loophole",
+      "category": "too_good",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "guaranteed weekly",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "guaranteed monthly",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "guaranteed daily",
+      "category": "returns",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "fixed monthly return",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "daily returns",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "weekly returns",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "high returns",
+      "category": "returns",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "high yield",
+      "category": "returns",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "no downside",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "can't go wrong",
+      "category": "returns",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "sure profit",
+      "category": "returns",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "guaranteed win",
+      "category": "returns",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "casino bonus",
+      "category": "gambling",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "free spins",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "free spin",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "no deposit bonus",
+      "category": "gambling",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "welcome bonus",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "betting bonus",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "100% bonus",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "200% bonus",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "bonus code",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "play now",
+      "category": "gambling",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "bet now",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "jackpot",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "poker",
+      "category": "gambling",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "roulette",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "blackjack",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "slots",
+      "category": "gambling",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "online casino",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "sports betting",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "betting site",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "wagering",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "free bet",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "freebet",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "bonus funds",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "casino bonus code",
+      "category": "gambling",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "deposit bonus",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "lucky spins",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "free credits",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "spin to win",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "claim your bonus",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "gambling credit",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "vip club",
+      "category": "gambling",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "20 free spins",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "50 free spins",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "100 free spins",
+      "category": "gambling",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "live dealer",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "win real money",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "maxwd",
+      "category": "gambling",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "t&c apply",
+      "category": "gambling",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "we missed you",
+      "category": "alcohol_delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "missed you today",
+      "category": "alcohol_delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "schedule a redelivery",
+      "category": "alcohol_delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "redelivery tomorrow",
+      "category": "alcohol_delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "missed delivery today",
+      "category": "alcohol_delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "before 6pm today",
+      "category": "alcohol_delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "we tried to deliver",
+      "category": "alcohol_delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery today between",
+      "category": "alcohol_delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "beer",
+      "category": "alcohol_delivery",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "wine",
+      "category": "alcohol_delivery",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "lager",
+      "category": "alcohol_delivery",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "alcohol delivery",
+      "category": "alcohol_delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "drink delivery",
+      "category": "alcohol_delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "alcohol order",
+      "category": "alcohol_delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "order pending",
+      "category": "alcohol_delivery",
+      "weight": 5,
+      "severity": "medium"
+    },
+    {
+      "text": "schedule your redelivery",
+      "category": "alcohol_delivery",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "final attempt",
+      "category": "alcohol_delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "delivery was missed",
+      "category": "alcohol_delivery",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "parcel delivery today",
+      "category": "alcohol_delivery",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "you have 1 new voicemail",
+      "category": "missed_call",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "new voicemail",
+      "category": "missed_call",
+      "weight": 6,
+      "severity": "medium"
+    },
+    {
+      "text": "call back",
+      "category": "missed_call",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "call this number",
+      "category": "missed_call",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "we tried to call you",
+      "category": "missed_call",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "voicemail message",
+      "category": "missed_call",
+      "weight": 4,
+      "severity": "medium"
+    },
+    {
+      "text": "call back immediately",
+      "category": "missed_call",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "please follow",
+      "category": "account_threat",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "re-activate",
+      "category": "account_threat",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "reactivate",
+      "category": "account_threat",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "verify now",
+      "category": "account_threat",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "update now",
+      "category": "account_threat",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "account update",
+      "category": "account_threat",
+      "weight": 5,
+      "severity": "low"
+    },
+    {
+      "text": "instant bonus",
+      "category": "crypto",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "receive an instant",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "deposit only",
+      "category": "crypto",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "make 30 sms",
+      "category": "crypto",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "prepaid mastercard",
+      "category": "crypto",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "prepaid visa",
+      "category": "crypto",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "free prepaid card",
+      "category": "crypto",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "approved for",
+      "category": "crypto",
+      "weight": 4,
+      "severity": "low"
+    },
+    {
+      "text": "credit card approved",
+      "category": "crypto",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "prize syndicate",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "international lottery",
+      "category": "prizes",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "monthly draw",
+      "category": "prizes",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "win 1000",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "win 500",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "win pounds",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "win cash",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "lucky dip",
+      "category": "prizes",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "claim code",
+      "category": "prizes",
+      "weight": 6,
+      "severity": "low"
+    },
+    {
+      "text": "claim now",
+      "category": "prizes",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "missed call from",
+      "category": "missed_call",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "missed call today",
+      "category": "missed_call",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "you have a missed call",
+      "category": "missed_call",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "missed call at",
+      "category": "missed_call",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "missed call on",
+      "category": "missed_call",
+      "weight": 3,
+      "severity": "low"
+    },
+    {
+      "text": "missed call from unknown",
+      "category": "missed_call",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "geek squad",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "geek squad complete",
+      "category": "tech_support",
+      "weight": 14,
+      "severity": "medium"
+    },
+    {
+      "text": "customer support desk",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "support team",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "low"
+    },
+    {
+      "text": "designated digital customer service",
+      "category": "impersonation",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "digital customer service channels",
+      "category": "impersonation",
+      "weight": 14,
+      "severity": "high"
+    },
+    {
+      "text": "physical retail store locations do not maintain",
+      "category": "secrecy",
+      "weight": 16,
+      "severity": "high"
+    },
+    {
+      "text": "administrative capability",
+      "category": "impersonation",
+      "weight": 10,
+      "severity": "medium"
+    },
+    {
+      "text": "service continuity",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "scheduled value",
+      "category": "impersonation",
+      "weight": 8,
+      "severity": "medium"
+    },
+    {
+      "text": "complete defense",
+      "category": "tech_support",
+      "weight": 12,
+      "severity": "medium"
+    },
+    {
+      "text": "protection plan",
+      "category": "tech_support",
+      "weight": 10,
+      "severity": "medium"
+    }
+  ],
+  "sources": [
+    {
+      "name": "FTC - How To Recognize and Avoid Phishing Scams",
+      "url": "https://consumer.ftc.gov/articles/how-recognize-avoid-phishing-scams",
+      "use": "Phishing scenarios, account/payment/refund/government-impersonation language."
+    },
+    {
+      "name": "FTC - Sure ways to spot a scammer",
+      "url": "https://consumer.ftc.gov/consumer-alerts/2024/03/sure-ways-spot-scammer",
+      "use": "Imposter-scam commands: act now, do not hang up, buy gift cards, move money, Bitcoin ATM."
+    },
+    {
+      "name": "IRS - Dirty Dozen phishing and smishing guidance",
+      "url": "https://www.irs.gov/newsroom/dirty-dozen-watch-out-for-scammers-using-email-and-text-messages-to-try-tricking-people-during-tax-season",
+      "use": "Tax-refund, account-hold, unusual-activity, and IRS-impersonation language."
+    },
+    {
+      "name": "IRS - Common tax scams",
+      "url": "https://www.irs.gov/newsroom/taxpayers-and-tax-pros-beware-of-these-common-tax-scams",
+      "use": "Tax-related impersonation and refund schemes."
+    },
+    {
+      "name": "Nazario phishing corpus",
+      "url": "https://www.monkey.org/~jose/phishing/",
+      "use": "Phishing email wording; CC-BY-4.0 dataset for evaluation."
+    },
+    {
+      "name": "Enron-Spam dataset",
+      "url": "https://github.com/MWiechmann/enron_spam_data",
+      "use": "Spam/ham email benchmark."
+    },
+    {
+      "name": "UCI SMS Spam Collection",
+      "url": "https://archive.ics.uci.edu/ml/datasets/sms+spam+collection",
+      "use": "SMS spam/ham benchmark."
+    },
+    {
+      "name": "Phishing Email Curated Datasets (Zenodo)",
+      "url": "https://zenodo.org/records/8339691",
+      "use": "Curated phishing email benchmark."
+    },
+    {
+      "name": "wspr-ncsu/sms-phishing",
+      "url": "https://github.com/wspr-ncsu/sms-phishing",
+      "use": "SMS phishing research corpus."
+    },
+    {
+      "name": "Mendeley smishing dataset",
+      "url": "https://data.mendeley.com/datasets/vmg875v4xs",
+      "use": "Smishing research corpus."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "sms_5971",
+  "description": "Local SMS phishing dataset (5,971 messages) previously used by Sentinel.",
+  "file": "sms_5971/Dataset_5971.csv",
+  "has_header": true,
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "errors": "replace",
+  "text_columns": ["TEXT"],
+  "label_columns": ["LABEL"],
+  "url_columns": ["URL"],
+  "source": "Local user dataset (copy into benchmarks/data/sms_5971/).",
+  "license": "Unknown: keep local and out of version control."
+}
