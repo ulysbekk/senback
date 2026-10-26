@@ -1,4 +1,4 @@
-"""Optional LLM second opinion.
+"""OPTIONAL!!! LLM second opinion.
 
 The rule engine is the reliable baseline. When enabled, the LLM receives the
 message as untrusted data and returns structured warnings. Its output is

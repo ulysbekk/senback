@@ -1,14 +1,4 @@
-"""FastAPI application for Sentinel.
-
-Run locally:
-    uvicorn app.main:app --reload --port 8000
-
-The Vite dev server forwards /analyze to http://localhost:8000 by default, so the
-frontend can connect by setting VITE_USE_MOCK_API=false.
-"""
-
 from __future__ import annotations
-
 import logging
 import time
 import uuid
@@ -95,8 +85,6 @@ async def analyze(payload: AnalyzeRequest, request: Request) -> AnalyzeResponse:
     started = time.perf_counter()
     result = await engine.analyze(payload.message, payload.url)
     duration_ms = (time.perf_counter() - started) * 1000
-
-    # Never log the message itself: it can contain personal or financial data.
     logger.info(
         "analyze request_id=%s score=%s level=%s warnings=%d message_len=%d has_url=%s ms=%.1f",
         getattr(request.state, "request_id", "-"),

@@ -43,24 +43,13 @@ def _origins() -> Tuple[str, ...]:
 class Settings:
     app_name: str = "Sentinel API"
     environment: str = field(default_factory=lambda: os.getenv("ENVIRONMENT", "development"))
-
-    # Browser origins allowed to call this API directly. In development the Vite
-    # proxy makes the request same-origin, so CORS is only needed when the
-    # frontend is built with VITE_API_BASE_URL pointing at this service.
     cors_origins: Tuple[str, ...] = field(default_factory=_origins)
     trust_proxy_headers: bool = field(default_factory=lambda: _bool("TRUST_PROXY_HEADERS", False))
-
-    # Abuse protection. In-memory is fine for one process; use Redis or a gateway
-    # limit when running more than one worker.
     rate_limit_per_minute: int = field(default_factory=lambda: _int("RATE_LIMIT_PER_MINUTE", 30, 1))
     max_request_bytes: int = field(default_factory=lambda: _int("MAX_REQUEST_BYTES", 32_768, 1_024))
     max_message_length: int = 5_000
     max_url_length: int = 2_048
-
-    # Curated phrase corpus. On by default; it degrades gracefully to rules if
-    # the data file is missing or malformed.
     lexicon_enabled: bool = field(default_factory=lambda: _bool("LEXICON_ENABLED", True))
-
     # Optional LLM second opinion. The rule engine always runs; this only adds
     # warnings and can raise (never lower) the rule-based score.
     llm_enabled: bool = field(default_factory=lambda: _bool("LLM_ENABLED", False))

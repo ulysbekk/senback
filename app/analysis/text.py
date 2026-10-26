@@ -5,12 +5,8 @@ from __future__ import annotations
 import re
 from typing import Iterator, List, Tuple
 
-# Tokens keep internal apostrophes so phrases like "don't tell your bank" match.
-# Unicode letters and digits are included; punctuation and emoji separate tokens.
 _TOKEN = re.compile(r"[^\W_]+(?:['’][^\W_]+)?", re.UNICODE)
 
-# A negation shortly before a match means the text is probably disclaiming the
-# behavior ("we do not guarantee returns") rather than promising it.
 _NEGATION_BEFORE = re.compile(
     r"\b(?:not|never|no|without|cannot|can't|don't|doesn't|won't|isn't|aren't|wasn't|weren't)\b"
     r"(?:\s+\w+){0,3}\s*$",
